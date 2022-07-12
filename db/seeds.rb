@@ -18,7 +18,7 @@ PowerGenerator.create!(
 )
 
 PowerGenerator.create!(
-  name: 'YC600 Monofásico', 
+  name: 'YC600 MONOFÁSICO', 
   description: 'O APsystems YC600i com EnergyMaxTM é um microinversor grid-tie que garante a máxima eficiência do sistema fotovoltaico. 
                 Altamente confiável e econômico, o YC600i com EnergyMaxTM é otimizado para os mais novos painéis fotovoltaicos de alta eficiência. 
                 O micro inversor possui 600W de potência de saída e duplo MPPT. Com aterramento integrado, sem a necessidade de string box e com a metade 
@@ -35,7 +35,7 @@ PowerGenerator.create!(
 )
 
 PowerGenerator.create!(
-  name: 'YC600 Monofásico', 
+  name: 'YC600 MONOFÁSICO', 
   description: 'O APsystems YC600i com EnergyMaxTM é um microinversor grid-tie que garante a máxima eficiência do sistema fotovoltaico. 
                 Altamente confiável e econômico, o YC600i com EnergyMaxTM é otimizado para os mais novos painéis fotovoltaicos de alta eficiência. 
                 O micro inversor possui 600W de potência de saída e duplo MPPT. Com aterramento integrado, sem a necessidade de string box e com a metade 
@@ -316,7 +316,7 @@ PowerGenerator.create!(
 )
 
 PowerGenerator.create!(
-  name: 'Trina Laje Plus', 
+  name: 'TRINA LAJE PLUS', 
   description: 'Eficiência média da célula de 19,7% 
                 144 meia células fotovoltaicas monocristalinas
                 Baixos coeficientes térmicos para maior produção de energia em alta temperatura de operação

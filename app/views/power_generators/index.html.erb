@@ -16,20 +16,17 @@
       </div>
     </div>
 
-    <%= form_tag do %>
-      <div class="simple-form">
-        <div class="simple-form__input">
-          <input class="form-control form-control-lg" type="text" placeholder="o que procura?">
-        </div>
-        <div class="simple-form__btn">
-          <button type="submit" class="btn btn-outline-primary btn-lg">Pesquisar</button>
-        </div>
-      </div>
+    <div class="simple-form">
+      <%= form_with url: search_path, method: :get do |f|%>
+        <%= f.text_field :query %>
+        <%= f.submit 'Pesquisar'%>
+      <% end %>
+    </div>
 
-      <div class="advanced-form" style="display:none;">
-        Entradas do usuário para pesquisar uma coleção de geradores de energia com base nas recomendações fornecidas e melhor custo de frete.
-      </div>
-    <% end %>
+    <div class="advanced-form" style="display:none;">
+      Entradas do usuário para pesquisar uma coleção de geradores de energia com base nas recomendações fornecidas e melhor custo de frete.
+    </div>
+
   </div>
 
   <div class="container" >
