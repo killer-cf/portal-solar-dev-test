@@ -30,7 +30,9 @@
   </div>
 
   <div>
-    
+    <h3>Filtros</h3>
+    <%= button_to 'Preço', filter_price_path, method: :get %>
+    <%= button_to 'KWP', filter_kwp_path, method: :get %>
   </div>
 
   <div class="container" >
@@ -44,5 +46,6 @@
         </div>
       </div>
     <% end %>
+    <%= paginate @power_generators%>
   </div>
 </div>
