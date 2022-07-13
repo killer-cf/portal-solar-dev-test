@@ -42,6 +42,7 @@ describe 'User searches for genarators' do
 
     expect(page).to have_content 'Resultado da pesquisa'
     expect(page).to have_content 'TRINA LAJE PLUS'
+    expect(page).not_to have_content 'POLI HALF CELL PRIMO'
   end
 
   it 'theres no exists results' do
