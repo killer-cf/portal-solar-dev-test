@@ -1,5 +1,5 @@
 class PowerGenerator < ApplicationRecord
-  validates :name, :description, :image_url, :manufacturer, :price, :kwp, presence: true
+  validates :name, :description, :image_url, :manufacturer, :price, :kwp, :cubed_weight, presence: true
   validates :height, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 40 }
   validates :width, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 100 }
   validates :lenght, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 200 }
@@ -14,4 +14,10 @@ class PowerGenerator < ApplicationRecord
     trapezoidal
   ]
 
+  before_validation :set_cubed_weight
+
+  def set_cubed_weight
+    return unless height
+    self.cubed_weight = height * width * lenght * 300
+  end
 end
