@@ -17,14 +17,39 @@
     </div>
 
     <div class="simple-form">
-      <%= form_with url: search_path, method: :get do |f|%>
-        <%= f.text_field :query %>
-        <%= f.submit 'Pesquisar'%>
+      <%= form_tag search_path, method: :get do |f|%>
+        <%= text_field_tag :query %>
+        <%= submit_tag 'Pesquisar'%>
       <% end %>
     </div>
 
-    <div class="advanced-form" style="display:none;">
-      Entradas do usuário para pesquisar uma coleção de geradores de energia com base nas recomendações fornecidas e melhor custo de frete.
+    <div class="advanced-form">
+      <%= form_tag advanced_search_path, method: :get do |f|%>
+        <div class="flex">
+          <div class='flex-col'>
+            <%= label_tag :kwp_min  %>
+            <%= number_field_tag :kwp_min %>
+          </div>
+          <div class='flex-col'>
+            <%= label_tag 'Preço max'  %>
+            <%= number_field_tag :price_max %>
+          </div>
+          <div class='flex-col'>
+            <% options_manufacture = options_for_select([
+              ['WEG', 'WEG'], ['Solar Group', 'Solar Group'],
+              ['BYD', 'BYD'], ['Q CELLS', 'Q CELLS'], ['Trina Solar', 'Trina Solar']
+              ]) %>
+            <%= label_tag 'Fabricante'%>
+            <%= select_tag :manufacturer, options_manufacture %>
+          </div>
+          <div class="flex-col">
+            <% options_structure = options_for_select(PowerGenerator.structure_types.keys.map { |key| [key, key]}) %>
+            <%= label_tag 'Tipo de estrutura'%>
+            <%= select_tag :structure_type, options_structure %>
+          </div>
+          <%= submit_tag 'Buscar'%>
+        </div>
+      <% end %>
     </div>
 
   </div>

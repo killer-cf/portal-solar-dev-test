@@ -142,3 +142,17 @@ p.power_generator-card__price {
   color: #e96443;
 }
 
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  margin-right: 10px;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col input {
+  width: 80px;
+}
+
