@@ -16,8 +16,8 @@
       <p><strong>Descrição: </strong><%= @power_generator.description %></p>
     </div>
   </div>
+
   <div>
-    <div>
       <div id='freight_value'  style='margin-top: 50px'>
         <h4>Informe o CEP</h4>
         <%= form_tag freight_value_power_generator_path(@power_generator), method: :get do %>
@@ -26,6 +26,5 @@
         <% end %>
       </div>              
       <h4>Frete: <%=number_to_currency(@power_generator.get_freight(@state), unit: 'R$', precision: 2, :separator => ",", :delimiter => ".") %></h4>
-    </div>
   </div>
 </section>
