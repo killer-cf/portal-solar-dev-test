@@ -23,6 +23,6 @@ describe 'User view generator details' do
     
 
     expect(page).to have_content 'TRINA LAJE PLUS'
-    expect(page).to have_content 'Frete: R$150.00'
+    expect(page).to have_content 'Frete: R$150,00'
   end
 end
