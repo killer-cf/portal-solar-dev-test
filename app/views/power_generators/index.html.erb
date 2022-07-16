@@ -60,17 +60,31 @@
     <%= button_to 'KWP', filter_kwp_path, method: :get %>
   </div>
 
-  <div class="container" >
-    <% @power_generators.each do |power_generator| %>
-      <div class="box card power_generator-card">
-        <%= image_tag power_generator.image_url, class: 'power_generator-card__img' %>
-        <div class="power_generator-card__body">
-          <h2><%= power_generator.name.upcase %></h2>
-          <p class="power_generator-card__price"><%= number_to_currency(power_generator.price, unit: "R$ ", precision: 2, :separator => ",", :delimiter => ".") %></p>
-          <p><strong>Descrição: </strong><%= power_generator.description %></p>
-        </div>
-      </div>
+  <div id='freight_value'>
+    <%= form_tag freight_value_path, method: :get do %>
+      <%= number_field_tag :cep %>
+      <%= submit_tag 'Buscar'%>
     <% end %>
-    <%= paginate @power_generators%>
+  </div>
+
+  <div class="container" >
+    <% unless @power_generators.empty? %>
+        <% @power_generators.each do |power_generator| %>
+          <div class="box card power_generator-card">
+            <%= image_tag power_generator.image_url, class: 'power_generator-card__img' %>
+            <div class="power_generator-card__body">
+              <h2><%= power_generator.name.upcase %></h2>
+              <p class="power_generator-card__price"><%= number_to_currency(power_generator.price, unit: "R$ ", precision: 2, :separator => ",", :delimiter => ".") %></p>
+              <p><strong>Descrição: </strong><%= power_generator.description %></p>
+            </div>
+            <div>             
+              <p>Frete: <%=number_to_currency(power_generator.get_freight(@state), unit: 'R$') %><p>
+            </div>
+          </div>
+        <% end %>
+        <%= paginate @power_generators%>
+      <% else %>
+        <p>Nenhum resultado encontrado!!</p>
+      <% end %>
   </div>
 </div>

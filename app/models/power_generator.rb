@@ -20,4 +20,11 @@ class PowerGenerator < ApplicationRecord
     return unless height
     self.cubed_weight = height * width * lenght * 300
   end
+
+  def get_freight(state = '')
+    return if state.nil?
+    cubed_weight = height * width * lenght * 300
+    freight = Freight.find_by('state = ? AND weight_min <= ? AND weight_max >= ?', state, cubed_weight, cubed_weight)
+    freight.cost
+  end
 end

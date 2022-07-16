@@ -23,7 +23,6 @@ describe 'User searches for genarators' do
     fill_in 'query', with: 'trina'
     click_on 'Pesquisar'
 
-    expect(page).to have_content 'Resultado da pesquisa'
     expect(page).to have_content 'TRINA LAJE PLUS'
     expect(page).not_to have_content 'POLI HALF CELL PRIMO'
   end
@@ -33,7 +32,6 @@ describe 'User searches for genarators' do
     fill_in 'query', with: 'trina'
     click_on 'Pesquisar'
 
-    expect(page).to have_content 'Resultado da pesquisa'
     expect(page).to have_content 'Nenhum resultado encontrado!!'
   end
 end

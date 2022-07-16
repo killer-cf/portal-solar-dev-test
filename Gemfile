@@ -16,6 +16,7 @@ gem 'uglifier', '>= 1.3.0'
 gem "roo", "~> 2.8.0"
 gem 'mimemagic', '~> 0.3.10'
 gem 'kaminari'
+gem 'faraday'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -34,6 +35,7 @@ group :test do
   gem 'rspec-rails'
   gem 'selenium-webdriver'
   gem 'webdrivers'
+  gem "database_cleaner-active_record", "~> 2.0"
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

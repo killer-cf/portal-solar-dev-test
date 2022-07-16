@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   get 'filter_price', to: 'power_generators#filter_price'
   get 'filter_kwp', to: 'power_generators#filter_kwp'
   get 'advanced_search', to: 'power_generators#advanced_search'
+  get 'freight_value', to: 'power_generators#freight_value'
   resources :home, only: %i[index]
 end

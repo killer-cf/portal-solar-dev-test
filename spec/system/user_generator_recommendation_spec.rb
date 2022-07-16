@@ -85,7 +85,7 @@ describe 'User uses search recommendations' do
     select 'WEG', from: 'manufacturer'
     fill_in 'price_max', with: '90000'
     select 'metalico', from: 'structure_type'
-    click_on 'Buscar'
+    find('.advanced-form').click_on 'Buscar'
 
     expect(page).to have_content 'TRIFÁSICO 380V'
     expect(page).to have_content 'FRONIUS METALICA'
@@ -177,7 +177,7 @@ describe 'User uses search recommendations' do
     fill_in 'price_max', with: ''
     select 'metalico', from: 'structure_type'
     select 'WEG', from: 'manufacturer'
-    click_on 'Buscar'
+    find('.advanced-form').click_on 'Buscar'
 
     expect(page).to have_content 'TRIFÁSICO 380V'
     expect(page).to have_content 'FRONIUS METALICA'
