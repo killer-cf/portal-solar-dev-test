@@ -1,7 +1,11 @@
 require 'rails_helper'
 
-describe 'User search for freight value' do
-  it 'success' do
+describe 'User view generator details' do
+  it 'from home screen' do
+    
+  end
+  
+  it 'and sees freight value' do
     generator = PowerGenerator.create!(
       name: 'TRINA LAJE PLUS', 
       description: 'Eficiência média da célula de 19,7% 144 meia células fotovoltaicas monocristalinas
@@ -13,6 +17,7 @@ describe 'User search for freight value' do
     Freight.create!(state: 'PE', weight_min: 1, weight_max: 300, cost: 150.0)
 
     visit root_path
+    click_on 'TRINA LAJE PLUS'
     fill_in 'cep', with: '50720570'
     find('#freight_value').click_on 'Buscar'
     

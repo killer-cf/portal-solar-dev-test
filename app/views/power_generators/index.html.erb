@@ -17,14 +17,14 @@
     </div>
 
     <div class="simple-form">
-      <%= form_tag search_path, method: :get do |f|%>
+      <%= form_tag search_power_generators_path, method: :get do |f|%>
         <%= text_field_tag :query %>
         <%= submit_tag 'Pesquisar'%>
       <% end %>
     </div>
 
     <div class="advanced-form">
-      <%= form_tag advanced_search_path, method: :get do |f|%>
+      <%= form_tag advanced_search_power_generators_path, method: :get do |f|%>
         <div class="flex">
           <div class='flex-col'>
             <%= label_tag :kwp_min  %>
@@ -56,15 +56,8 @@
 
   <div>
     <h3>Filtros</h3>
-    <%= button_to 'Preço', filter_price_path, method: :get %>
-    <%= button_to 'KWP', filter_kwp_path, method: :get %>
-  </div>
-
-  <div id='freight_value'>
-    <%= form_tag freight_value_path, method: :get do %>
-      <%= number_field_tag :cep %>
-      <%= submit_tag 'Buscar'%>
-    <% end %>
+    <%= button_to 'Preço', filter_price_power_generators_path, method: :get %>
+    <%= button_to 'KWP', filter_kwp_power_generators_path, method: :get %>
   </div>
 
   <div class="container" >
@@ -73,12 +66,9 @@
           <div class="box card power_generator-card">
             <%= image_tag power_generator.image_url, class: 'power_generator-card__img' %>
             <div class="power_generator-card__body">
-              <h2><%= power_generator.name.upcase %></h2>
+              <h2><%= link_to power_generator.name.upcase, power_generator_path(power_generator) %></h2>
               <p class="power_generator-card__price"><%= number_to_currency(power_generator.price, unit: "R$ ", precision: 2, :separator => ",", :delimiter => ".") %></p>
               <p><strong>Descrição: </strong><%= power_generator.description %></p>
-            </div>
-            <div>             
-              <p>Frete: <%=number_to_currency(power_generator.get_freight(@state), unit: 'R$') %><p>
             </div>
           </div>
         <% end %>

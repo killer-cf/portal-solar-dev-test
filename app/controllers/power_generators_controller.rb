@@ -3,6 +3,10 @@ class PowerGeneratorsController < ApplicationController
     @power_generators = PowerGenerator.page(params[:page]).per(6)
   end
 
+  def show
+    @power_generator = PowerGenerator.find(params[:id])
+  end
+
   def search
     @power_generators = PowerGenerator.where("name LIKE ?", "%#{params[:query].upcase}%").page(params[:page]).per(6)
 
@@ -37,7 +41,7 @@ class PowerGeneratorsController < ApplicationController
     response = Faraday.get('https://viacep.com.br/ws/50720570/json/')
     response_hash = JSON.parse(response.body)
     @state = response_hash["uf"]
-    @power_generators = PowerGenerator.page(params[:page]).per(6)
-    render :index
+    @power_generator = PowerGenerator.find(params[:id])
+    render :show
   end
 end
