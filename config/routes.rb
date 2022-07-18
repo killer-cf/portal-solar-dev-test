@@ -10,4 +10,10 @@ Rails.application.routes.draw do
     end   
     get 'freight_value', on: :member 
   end
+
+  namespace :api do
+    namespace :v1 do
+      resources :power_generators, only: %i[show index]
+    end
+  end
 end

@@ -8,9 +8,6 @@ require("@rails/activestorage").start()
 require("channels")
 import "jquery"
 window.addEventListener("load", () => {
-  $('body').on('click', function(){
-    console.log('oi')
-  })
 })
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
